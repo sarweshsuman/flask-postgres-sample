@@ -8,18 +8,18 @@ import sys
 
 import logging
 
-app = Flask(__name__)
+app1 = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
-cors = CORS(app, resources={r'/submitNewTicket': {"origins": "*"}})
+cors = CORS(app1, resources={r'/submitNewTicket': {"origins": "*"}})
 
 logging.getLogger('flask_cors').level = logging.DEBUG
 
 
-@app.route('/')
+@app1.route('/')
 def index():
     return "Server Is Up!"
 
-@app.route('/submitNewTicket',methods=['POST'])
+@app1.route('/submitNewTicket',methods=['POST'])
 
 @cross_origin()
 def submit_new_ticket():
@@ -40,4 +40,4 @@ def submit_new_ticket():
      return jsonify("Received Error {}, please try again".format(e))
 
 if __name__ == '__main__':
-    app.run(debug=True,host='10.0.0.6',port=3001,threaded=True)
+    app1.run(debug=True,host='10.0.0.6',port=3001,threaded=True)

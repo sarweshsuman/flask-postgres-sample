@@ -11,13 +11,13 @@ class TicketsPostgresWrapper:
             self.cursor = self.conn.cursor()
         except Exception as e:
             print("I am unable to connect to the database ",e)
-    def close(self):
+    def close1(self):
         try:
-            self.conn.close()
+            self.conn.close1()
         except Exception as e:
             print("Got error while disconnecting {}".format(e))
 
-    def get_all_rows(self):
+    def get_all_rows1(self):
         try:
             data=[]
             self.cursor.execute(self.query_all_data)
